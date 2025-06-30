@@ -11,13 +11,11 @@ def Missing_el(data,col, tag):
             counter += 1
 
 # Create comparison key for bank data
-def get_comparison_key(bank_required_cols):
-    if bank_required_cols['TRN TYPE'] == "Checks":
-        return bank_required_cols['Customer reference']
-    elif bank_required_cols['TRN TYPE'] == "Wires": 
-        return bank_required_cols['Bank reference']
-    elif bank_required_cols['TRN TYPE'] == "AR Module":
-        return bank_required_cols['Bank reference']
+def get_comparison_key(row):
+    if row['Bank reference'] == "NONREF" :
+        return row['Customer reference']
+    else : 
+        return row['Bank reference']
 
 
 # Filter Type Function
@@ -67,8 +65,3 @@ def matched_cal(data) :
     )
 
     return data
-
-
-    
-
-                
