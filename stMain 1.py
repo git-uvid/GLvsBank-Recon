@@ -159,13 +159,9 @@ def run_reconciliation():
             matched_gl_bank_formatted.drop('Bank reference', axis=1, inplace=True)
             matched_gl_bank_formatted.drop('Customer reference', axis=1, inplace=True)
 
-            #Merging Type and TRN TYPE
-            matched_gl_bank_formatted['Type'] = np.where(matched_gl_bank_formatted['Type'].isnull(), matched_gl_bank_formatted['TRN TYPE'], matched_gl_bank_formatted['Type'])
-            matched_gl_bank_formatted.drop('TRN TYPE', axis=1, inplace=True)
-
             matched_gl_bank_formatted.columns = [
                 'Key_Transaction Number', 'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project', 
-                'GL_Period Name', 'GL_Source','Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status', 
+                'GL_Period Name', 'GL_Source','GL_Type', 'GL_Accounted Sum','Bnk_TRN TYPE', 'Bnk_TRN status', 
                 'Bnk_Value date', 'Bnk_Credit amount', 'Bnk_Debit amount','Bnk_Accounted Sum','Bnk_Time', 'Bnk_Post date', 'Bnk_Comparsion_Key',
                 'variance', 'comment'
             ]
