@@ -132,20 +132,22 @@ def run_reconciliation():
             def rename_ARModule(row):
                 if row['TRN TYPE'] == "AR Module":
                     return 'AR'
+                elif row['TRN TYPE'] == "Autodebits" :
+                    return 'Autodebit'
                 else:
                     return row['TRN TYPE']
                 
             bank_required_cols['TRN TYPE'] = bank_required_cols.apply(rename_ARModule, axis=1)
 
-            # Filter records
+            # Filter records - Not in Use
             Filter = ['Checks', 'Wires', 'AR']
             gl_req_cols_checks  = filter_type(gl_agg, 'Type',Filter)     
             bank_req_cols_checks = filter_type(bank_required_cols, 'TRN TYPE', Filter)
 
             # Merge GL and bank data
             matched_gl_bank = pd.merge(
-                gl_req_cols_checks,
-                bank_req_cols_checks,
+                gl_agg,
+                bank_required_cols,
                 left_on=['Transaction Number', 'Type'],
                 right_on=['comparsion_key', 'TRN TYPE'],
                 how='outer'
@@ -179,7 +181,7 @@ def run_reconciliation():
 #--------------------------------------------------------Outstanding checks---------------------------------------------
             
             # # Process outstanding checks
-            ost_bank_chks = ost_bank(outstanding_check, bank_req_cols_checks)
+            ost_bank_chks = ost_bank(outstanding_check, bank_required_cols)
 
             # Add new outstanding checks from GL
 
