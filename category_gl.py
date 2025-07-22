@@ -42,6 +42,7 @@ def gl_type(gl:pd.DataFrame, bank:pd.DataFrame) -> pd.DataFrame:
         comparison_map = dict(zip(bank[BANK_COMPARISON_KEY_COL], bank[BANK_TRN_TYPE_COL]))
         gl['BankTransaction_BasedType'] = gl[GL_TRANSACTION_NUMBER_COL].map(comparison_map).fillna('NoCategory')
 
+        
         logger.info("Identified the GL Category based on the bank Transaction")
 
         # 2. Classify checks by transaction number pattern

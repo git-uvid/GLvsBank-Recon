@@ -37,7 +37,7 @@ def fill_transaction_number_basedonDesc(df:pd.DataFrame,transCol:str,descCol:str
             if match and len(match.group(1).strip()) <= 9:
                 return match.group(1).strip()
             return None
-        
+            
     if descCol in df.columns and transCol in df.columns:
         df = df.copy()
         pattern = rf"{descSearch2}\s*(\S+)"
@@ -48,6 +48,7 @@ def fill_transaction_number_basedonDesc(df:pd.DataFrame,transCol:str,descCol:str
         extracted = df.loc[mask, descCol].apply(extract_ck)
         df.loc[mask & extracted.notna(), transCol] = extracted
         logger.info("Completed CK# extraction and DataFrame update.")
+        
         return df
 
     else:
@@ -220,6 +221,8 @@ def clean_and_prepare_gl_bank_data(gl_df: pd.DataFrame, bank_df: pd.DataFrame) -
             gl_df_cleaned[col] = gl_df_cleaned[col].astype(str).str.lstrip('0')
         else:
             logger.warning(f"Column '{col}' not found in GL data for stripping leading zeros.")
+
+    
 
     for col in [BANK_REFERENCE_COL, CUSTOMER_REFERENCE_COL]:
         if col in bank_df.columns:

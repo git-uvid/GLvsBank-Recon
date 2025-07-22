@@ -76,7 +76,7 @@ BANK_COMPARISON_KEY_COL = 'comparsion_key'
 
 GL_VS_BANK_COL = [
             'Key_Transaction Number', 'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project',
-            'GL_Period Name', 'GL_Source', 'Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status',
+            'GL_Period Name','GL_Source', 'Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status',
             'Bnk_Value date', 'Bnk_Credit amount', 'Bnk_Debit amount', 'Bnk_Accounted Sum',
             'Bnk_Time', 'Bnk_Post date', 'Bnk_Comparsion_Key', 'variance', 'comment'
         ]
@@ -151,3 +151,12 @@ LOG_FILE_NAME = 'reconciliation.log'
 TAB1 = "📁 File Upload"
 TAB2 = "🔄 Categorization"
 TAB3 = "⚖️ Reconciliation"
+
+#---------------Excel formatting currency columns---------------
+CURRENCY_COLUMNS = [
+    'GL_Accounted Sum', 'Bnk_Credit amount', 'Bnk_Debit amount', 'Bnk_Accounted Sum', 'variance', # From GL vs Bank sheet
+    'Amount', # From Outstanding Check sheet (original outstanding amount)
+    'Banking Credit amount', 'Banking Debit amount', 'Banking sum Cr Dr', # From Bank Pivot
+    'GL Accounted CR', 'GL Accounted DR', 'GL sum Accounted Cr Dr', # From GL Pivot
+    'Bank Sum', 'GL Sum', 'Difference' # From Difference Grid
+]

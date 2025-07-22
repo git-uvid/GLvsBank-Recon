@@ -260,7 +260,7 @@ def consolidate_outstanding_checks(
         )
 
 
-        ost_bank_chks_final = ost_bank_chks_final.drop(columns=['Party Name', GL_TRANSACTION_NUMBER_COL + '_party_dim'], errors='ignore')
+        ost_bank_chks_final = ost_bank_chks_final.drop(columns=[ GL_TRANSACTION_NUMBER_COL + '_party_dim'], errors='ignore')
     else:
         logger.warning("Party dimension DataFrame is empty. Skipping merge for Vendor Name.")
 

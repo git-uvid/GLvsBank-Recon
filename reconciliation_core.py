@@ -48,17 +48,17 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         logger.info("GL and Bank data cleaned and prepared.")
 
         # 2. Aggregate GL data
-        gl_cleaned.to_excel("bglAgg.xlsx",index=False)
         gl_cleaned[GL_ACCOUNTED_SUM_COL] = pd.to_numeric(gl_cleaned[GL_ACCOUNTED_SUM_COL], errors="coerce")
+        
 
         gl_agg = gl_cleaned.groupby([
-            'CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Period Name',
+            'CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Period Name','Source',
             GL_TRANSACTION_NUMBER_COL, GL_TYPE_COL,
         ], as_index=False)[GL_ACCOUNTED_SUM_COL].sum()
         gl_agg = gl_agg[gl_agg[GL_ACCOUNTED_SUM_COL] != 0].copy() # Filter out zero accounted sum
-        gl_agg.to_excel("afterglAgg.xlsx")
         logger.info("GL data aggregated.")
 
+          
         # 3. Merge GL and bank data for matching
         matched_gl_bank = pd.merge(
             gl_agg,
@@ -67,6 +67,7 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
             right_on=BANK_COMPARISON_KEY_COL,
             how='outer'
         )
+        
         matched_gl_bank_with_comments = calculate_variance_and_comments(matched_gl_bank)
         logger.info("GL and Bank data matched and comments generated.")
 
@@ -82,8 +83,8 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
 
         # Rename columns for clarity in the output report
         matched_gl_bank_formatted.columns = [
-            'Key_Transaction Number', 'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project',
-            'GL_Period Name','Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status',
+             'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project',
+            'GL_Period Name','GL_Source','Key_Type','Key_Transaction Number', 'GL_Accounted Sum', 'Bnk_TRN status',
             'Bnk_Value date', 'Bnk_Credit amount', 'Bnk_Debit amount','Bnk_Time', 'Bnk_Post date', 'Bnk_Comparsion_Key','Bnk_Accounted Sum',
             'variance', 'comment'
         ]
@@ -101,6 +102,7 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         # 5. Process Outstanding Checks
         # Get party dimension table
         mrg_final_party_df = get_party_dimension_table(gl_cleaned)
+        
 
 
         # Prepare date posted dim table
@@ -156,10 +158,17 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
             return None
 
         # Prepare other dataframes for export
+        #dataframes_to_export = {
+           # GL_VS_BANK_SHEET_NAME: styled_matched_gl_bank,
+           # OUTSTANDING_CHECK_SHEET_NAME: styled_ost_bank_chks
+        #}
+
         dataframes_to_export = {
             GL_VS_BANK_SHEET_NAME: styled_matched_gl_bank,
             OUTSTANDING_CHECK_SHEET_NAME: styled_ost_bank_chks
         }
+
+
 
         # Write other sheets using the same writer
         other_sheets_export_status = export_formatted_excel(

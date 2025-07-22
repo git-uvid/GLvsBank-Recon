@@ -7,14 +7,18 @@ import logging
 from config import (
     COMMENT_FULL_MATCH, COMMENT_GL_YES_BANK_NO, COMMENT_PARTIAL_MATCH,
     HEADER_BG_COLOR_PIVOT, HEADER_TEXT_COLOR_PIVOT, DATA_CELL_BORDER_COLOR_PIVOT,
-    HEADER_BG_COLOR_RECON, HEADER_TEXT_COLOR_RECON, DATA_CELL_BORDER_COLOR_RECON
+    HEADER_BG_COLOR_RECON, HEADER_TEXT_COLOR_RECON, DATA_CELL_BORDER_COLOR_RECON,
+    GL_VS_BANK_SHEET_NAME, OUTSTANDING_CHECK_SHEET_NAME, # Import sheet names
+    CURRENCY_COLUMNS
 )
 
 logger = logging.getLogger(__name__)
 
+
 def get_comment_format_style(comment: str) -> str:
     """
     Returns CSS style string based on the comment value for conditional formatting.
+    This function is primarily used for pandas Styler objects.
 
     Args:
         comment (str): The comment string.
@@ -78,20 +82,19 @@ def write_reconciliation_summary_sheet(
             'border': 1
         })
 
-        data_cell_format = workbook.add_format({
-            'border': 1,
-            'border_color': data_cell_border_color
-        })
+        # Data cell format (for non-currency, no border here, border applied conditionally)
+        data_cell_format = workbook.add_format({}) # No border here
 
-        #Number format for currency in pivot sheet
+        # Number format for currency in pivot sheet (no border here, border applied conditionally)
         currency_format = workbook.add_format({
             'num_format': '$#,##0.00', # Dollar sign, comma separator, 2 decimal places
+        })
+
+        # Format specifically for applying borders to non-empty data cells
+        border_only_format = workbook.add_format({
             'border': 1,
             'border_color': data_cell_border_color
         })
-
-        # A format for cells that should explicitly NOT have borders (for spacing)
-        no_border_format = workbook.add_format({'border': 0})
 
         # --- Determine Placement for each table ---
         tables_to_export_and_layout = [
@@ -125,6 +128,9 @@ def write_reconciliation_summary_sheet(
             table_name = item['name']
             start_row, start_col = all_positions[i]
 
+            logger.debug(f"Writing '{table_name}' to Excel. Columns: {df_to_write.columns.tolist()}, Dtypes: {df_to_write.dtypes.to_dict()}")
+
+
             # Write table name (title) above the table
             worksheet.write(start_row - 1, start_col, table_name, workbook.add_format({'bold': True, 'font_size': 12}))
 
@@ -145,18 +151,18 @@ def write_reconciliation_summary_sheet(
             for col_num, value in enumerate(df_to_write.columns.values):
                 worksheet.write(start_row, start_col + col_num + 1, value, header_format)
 
-            # Adjust column widths and apply data cell borders
+            # Adjust column widths and apply data cell formats (currency or general)
             # For index column
             index_col_len = len(str(df_to_write.index.name)) if df_to_write.index.name else 5
             if isinstance(df_to_write.index, pd.MultiIndex):
                 for level_name in df_to_write.index.names:
                     if level_name:
                         index_col_len = max(index_col_len, len(str(level_name)))
-            worksheet.set_column(start_col, start_col, index_col_len + 5)
+            worksheet.set_column(start_col, start_col, index_col_len + 5, data_cell_format) # Apply data cell format to index column
 
             # For data columns
             for col_idx, col_name in enumerate(df_to_write.columns):
-                excel_col_num = start_col + col_idx + 1
+                excel_col_num = start_col + col_idx + 1 # +1 because index is at start_col
                 col_data_max_len = 0
                 if not df_to_write[col_name].empty:
                     # Calculate max length of data in the column
@@ -167,9 +173,14 @@ def write_reconciliation_summary_sheet(
 
                 # Max length is either header length or max data length, plus some padding
                 max_len = max(int(col_data_max_len), len(str(col_name))) + 2
-                worksheet.set_column(excel_col_num, excel_col_num, max_len)
 
-            # Apply data cell borders to the *actual data range* of the current table.
+                # Apply currency format if column name is in CURRENCY_COLUMNS, otherwise general data format
+                if col_name in CURRENCY_COLUMNS:
+                    worksheet.set_column(excel_col_num, excel_col_num, max_len, currency_format)
+                else:
+                    worksheet.set_column(excel_col_num, excel_col_num, max_len, data_cell_format)
+
+            # Apply borders only to non-empty data cells within the table's data range
             data_start_row_excel = start_row + 1
             data_end_row_excel = start_row + len(df_to_write)
             data_start_col_excel = start_col
@@ -178,8 +189,9 @@ def write_reconciliation_summary_sheet(
             worksheet.conditional_format(
                 data_start_row_excel, data_start_col_excel,
                 data_end_row_excel, data_end_col_excel,
-                {'type': 'no_errors', 'format': data_cell_format}
+                {'type': 'no_blanks', 'format': border_only_format}
             )
+
 
         logger.info(f"Reconciliation summary written to sheet '{sheet_name}' successfully.")
         return True
@@ -210,9 +222,7 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
                            otherwise None (if writer_obj was provided). Returns None on error.
     """
     logger.info("Starting formatted Excel export.")
-    #created_writer_internally = False
     output = None
-    #writer = writer_obj
 
     try:
         if not isinstance(dataframes_dict, dict) or not dataframes_dict:
@@ -239,55 +249,122 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
             'border': 1
         })
         
-        # Data cell format (for borders)
-        data_cell_format = workbook.add_format({
-            'border': 1, # Border for data cells
-            'border_color': 'black' # Default border color for data cells
+        # Data cell format (no border by default, will be applied conditionally)
+        data_cell_format = workbook.add_format({})
+
+        # Number format for currency in reconciliation sheets (no border by default, will be applied conditionally)
+        currency_format_reconciliation = workbook.add_format({
+            'num_format': '$#,##0.00',
         })
 
+        # Format specifically for applying borders to non-empty cells
+        border_only_format_reconciliation = workbook.add_format({
+            'border': 1,
+            'border_color': 'black'
+        })
+
+        # Define formats for comment cells
+        comment_green_format = workbook.add_format({'bg_color': 'green', 'font_color': 'white', 'border': 1, 'border_color': 'black'})
+        comment_blue_format = workbook.add_format({'bg_color': 'blue', 'font_color': 'white', 'border': 1, 'border_color': 'black'})
+        comment_yellow_format = workbook.add_format({'bg_color': 'yellow', 'font_color': 'black', 'border': 1, 'border_color': 'black'})
+        comment_red_format = workbook.add_format({'bg_color': 'red', 'font_color': 'white', 'border': 1, 'border_color': 'black'})
+
+        # Map comment values to xlsxwriter formats
+        comment_formats = {
+            COMMENT_FULL_MATCH: comment_green_format,
+            COMMENT_GL_YES_BANK_NO: comment_blue_format,
+            COMMENT_PARTIAL_MATCH: comment_yellow_format,
+            # Default for other comments (e.g., COMMENT_GL_NO_BANK_YES, COMMENT_TRANS_MATCH_DIFF_AMT)
+            'default': comment_red_format
+        }
+
+        # Helper function to convert column index to Excel column letter
+        def get_excel_column_letter(col_idx):
+            result = ""
+            while col_idx >= 0:
+                result = chr(65 + (col_idx % 26)) + result
+                col_idx = (col_idx // 26) - 1
+            return result
 
         for sheet_name, df in dataframes_dict.items():
+            # Ensure original_df_data is always a DataFrame, even if df is a Styler
             if isinstance(df, pd.io.formats.style.Styler):
-                styled_df = df
                 original_df_data = df.data
             else:
-                styled_df = df.style
-                if 'comment' in df.columns:
-                    styled_df = styled_df.map(formatCommentCol, subset=['comment'])
-                styled_df = styled_df.set_properties(**{
-                    'border': '1px solid black',
-                    'border-color': 'black'
-                })
                 original_df_data = df
 
-            styled_df.to_excel(writer, sheet_name=sheet_name, index=False)
+            # Write the DataFrame data first, starting from row 1 (after headers)
+            original_df_data.to_excel(writer, sheet_name=sheet_name, index=False, header=False, startrow=1, na_rep='')
 
             worksheet = writer.sheets[sheet_name]
 
+            logger.debug(f"Writing sheet '{sheet_name}'. Columns: {original_df_data.columns.tolist()}, Dtypes: {original_df_data.dtypes.to_dict()}")
+
+            # Write headers with formatting at row 0
             for col_num, value in enumerate(original_df_data.columns.values):
                 worksheet.write(0, col_num, value, header_format_excel)
 
+            # Adjust column widths and apply data cell formats (currency or general)
+            # These formats now do NOT include borders by default
             for i, col in enumerate(original_df_data.columns):
                 col_data_max_len = 0
                 if not original_df_data[col].empty:
+                    # Calculate max length of data in the column
                     lengths = original_df_data[col].astype(str).map(len)
                     col_data_max_len = lengths.max()
                     if pd.isna(col_data_max_len):
                         col_data_max_len = 0
                 max_len = max(int(col_data_max_len), len(str(col))) + 2
-                worksheet.set_column(i, i, max_len, data_cell_format) # Apply data cell format here
 
-            # Robustly apply data cell borders to the entire data range of the current table
+                # Apply currency format if column name is in CURRENCY_COLUMNS, otherwise general data format
+                if col in CURRENCY_COLUMNS:
+                    worksheet.set_column(i, i, max_len, currency_format_reconciliation)
+                else:
+                    worksheet.set_column(i, i, max_len, data_cell_format)
+
+            # Determine the end column for borders based on sheet name
             data_start_row_excel = 1 # Data starts at row 1 after header
             data_end_row_excel = len(original_df_data) # Last row of data
             data_start_col_excel = 0
-            data_end_col_excel = len(original_df_data.columns) -1 # Last column index (0-based)
+
+            # Set the specific end column index for borders for each sheet
+            if sheet_name == GL_VS_BANK_SHEET_NAME:
+                data_end_col_excel_for_border = 19 # Column 'T' (0-indexed)
+            elif sheet_name == OUTSTANDING_CHECK_SHEET_NAME:
+                data_end_col_excel_for_border = 15 # Column 'P' (0-indexed)
+            else:
+                # Fallback to the last column of the DataFrame if sheet name is not specifically handled
+                data_end_col_excel_for_border = len(original_df_data.columns) - 1
             
+            # Apply borders only to non-empty rows within the specified range
+            # The formula checks if any cell in the row from 'first_col_letter' to 'last_col_letter' is non-empty.
+            first_col_letter = get_excel_column_letter(data_start_col_excel)
+            last_col_letter = get_excel_column_letter(data_end_col_excel_for_border)
+            
+            # Formula is relative to the top-left cell of the conditional format range.
+            # Excel rows are 1-indexed, so add 1 to data_start_row_excel.
+            # We want borders IF the row is NOT empty.
+            formula = f'=COUNTA(${first_col_letter}{data_start_row_excel + 1}:${last_col_letter}{data_start_row_excel + 1})>0'
+
+            # Apply the border_only_format_reconciliation if the row is NOT empty
             worksheet.conditional_format(
                 data_start_row_excel, data_start_col_excel,
-                data_end_row_excel, data_end_col_excel,
-                {'type': 'no_errors', 'format': data_cell_format}
+                data_end_row_excel, data_end_col_excel_for_border, # Apply to the specific range
+                {'type': 'formula', 'criteria': formula, 'format': border_only_format_reconciliation}
             )
+
+            # Apply conditional formatting for the 'comment' column if it exists
+            if 'comment' in original_df_data.columns:
+                comment_col_idx = original_df_data.columns.get_loc('comment')
+                # Iterate through rows to apply format to the specific comment cell
+                for row_num, comment_value in enumerate(original_df_data['comment']):
+                    excel_row = row_num + 1 # Data starts at row 1
+                    
+                    # Get the format from the dictionary, defaulting if not found
+                    format_to_apply = comment_formats.get(comment_value, comment_formats['default'])
+                    
+                    # Apply format to the specific comment cell, preserving other column formats
+                    worksheet.write(excel_row, comment_col_idx, comment_value, format_to_apply)
 
 
         # Only close the writer if it was created internally
