@@ -131,11 +131,11 @@ def process_outstanding_bank_checks(outstanding_df: pd.DataFrame, bank_df: pd.Da
     ost_bank_chks[OUTSTANDING_CLEARED_COL] = np.where(ost_bank_chks['updated status'] == "Check cleared", "yes", 'no')
     logger.info("Outstanding bank checks processed.")
 
-
+    #ost_bank_chks.to_excel('ost_test.xlsx', index= False)
     return ost_bank_chks
 
 
-def get_new_outstanding_from_gl(comments_data: pd.DataFrame, existing_outstanding_df: pd.DataFrame) -> pd.DataFrame:
+def get_new_outstanding_from_gl(comments_data: pd.DataFrame, existing_outstanding_df: pd.DataFrame, party_dim_df, gl_date_posted_df) -> pd.DataFrame:
     """
     Identifies new outstanding checks from GL data that are not present in
     the existing outstanding check report.
@@ -198,13 +198,53 @@ def get_new_outstanding_from_gl(comments_data: pd.DataFrame, existing_outstandin
 
     logger.info(f"Identified {len(new_ost_checks)} new outstanding checks from GL.")
 
-    return new_ost_checks
+    
+    cols_to_select = [GL_TRANSACTION_NUMBER_COL, 'Party Name'] + \
+    [col for col in party_dim_df.columns if col.startswith('Bnk')] + \
+    (['variance'] if 'variance' in party_dim_df.columns else [])
+    party_dim_df = party_dim_df[cols_to_select]
+
+     # Merge with party dim df to get vendor name
+    if not party_dim_df.empty:
+        new_ost_checks_final = pd.merge(
+            new_ost_checks,
+            party_dim_df[[GL_TRANSACTION_NUMBER_COL, 'Party Name']], # Only merge necessary columns
+            left_on=OUTSTANDING_CHECK_NUMBER_COL,
+            right_on=GL_TRANSACTION_NUMBER_COL,
+            how='left',
+            suffixes=('_current', '_party_dim') # Avoid column name conflicts
+        )
+    
+    # Merge with date posted dim df
+    if not gl_date_posted_df.empty:
+        print( 'nOT EMPTY')
+        new_ost_checks_final = pd.merge(
+            new_ost_checks_final,
+            gl_date_posted_df[[GL_TRANSACTION_NUMBER_COL, 'Transaction Date']], # Only merge necessary columns
+            left_on=OUTSTANDING_CHECK_NUMBER_COL,
+            right_on=GL_TRANSACTION_NUMBER_COL,
+            how='left',
+            suffixes=('_current', '_date_dim')
+        )
+
+        if OUTSTANDING_DATE_POSTED_COL not in new_ost_checks_final.columns:
+            new_ost_checks_final[OUTSTANDING_DATE_POSTED_COL] = new_ost_checks_final['Transaction Date']
+
+            new_ost_checks_final[OUTSTANDING_DATE_POSTED_COL] = np.where(
+                new_ost_checks_final[OUTSTANDING_DATE_POSTED_COL].isnull(),
+                new_ost_checks_final['Transaction Date'],
+                new_ost_checks_final[OUTSTANDING_DATE_POSTED_COL]
+            )
+
+        new_ost_checks_final = new_ost_checks_final.drop(columns=['Transaction Date', GL_TRANSACTION_NUMBER_COL + '_date_dim'], errors='ignore')
+    
+    return new_ost_checks_final
 
 def consolidate_outstanding_checks(
     ost_bank_chks: pd.DataFrame,
-    new_gl_ost_chks: pd.DataFrame,
-    party_dim_df: pd.DataFrame,
-    gl_date_posted_df: pd.DataFrame
+    new_gl_ost_chks: pd.DataFrame#,
+    # party_dim_df: pd.DataFrame,
+    # gl_date_posted_df: pd.DataFrame
 ) -> pd.DataFrame:
     """
     Consolidates all outstanding checks, merges with party dimension and date posted data,
@@ -240,51 +280,52 @@ def consolidate_outstanding_checks(
             ost_bank_chks_final[col] = ost_bank_chks_final[col].fillna(0)
 
 
-    # Merge with party dim df to get vendor name
-    if not party_dim_df.empty:
-        ost_bank_chks_final = pd.merge(
-            ost_bank_chks_final,
-            party_dim_df[[GL_TRANSACTION_NUMBER_COL, 'Party Name']], # Only merge necessary columns
-            left_on=OUTSTANDING_CHECK_NUMBER_COL,
-            right_on=GL_TRANSACTION_NUMBER_COL,
-            how='left',
-            suffixes=('_current', '_party_dim') # Avoid column name conflicts
-        )
+    # # Merge with party dim df to get vendor name
+    # if not party_dim_df.empty:
+    #     ost_bank_chks_final = pd.merge(
+    #         ost_bank_chks_final,
+    #         party_dim_df[[GL_TRANSACTION_NUMBER_COL, 'Party Name']], # Only merge necessary columns
+    #         left_on=OUTSTANDING_CHECK_NUMBER_COL,
+    #         right_on=GL_TRANSACTION_NUMBER_COL,
+    #         how='left',
+    #         suffixes=('_current', '_party_dim') # Avoid column name conflicts
+    #     )
 
         
 
-        ost_bank_chks_final[OUTSTANDING_VENDOR_NAME_COL] = np.where(
-            ost_bank_chks_final[OUTSTANDING_VENDOR_NAME_COL].isnull(),
-            ost_bank_chks_final['Party Name'],
-            ost_bank_chks_final[OUTSTANDING_VENDOR_NAME_COL]
-        )
+    ost_bank_chks_final[OUTSTANDING_VENDOR_NAME_COL] = np.where(
+    ost_bank_chks_final['Vendor Name'].isnull() ,
+    ost_bank_chks_final[OUTSTANDING_VENDOR_NAME_COL],
+    ost_bank_chks_final['Vendor Name']
+    )
 
+    #ost_bank_chks_final.to_excel('ost_test.xlsx', index=False)
 
-        ost_bank_chks_final = ost_bank_chks_final.drop(columns=[ GL_TRANSACTION_NUMBER_COL + '_party_dim'], errors='ignore')
-    else:
-        logger.warning("Party dimension DataFrame is empty. Skipping merge for Vendor Name.")
+    #     ost_bank_chks_final = ost_bank_chks_final.drop(columns=[ GL_TRANSACTION_NUMBER_COL + '_party_dim'], errors='ignore')
+    # else:
+    #     logger.warning("Party dimension DataFrame is empty. Skipping merge for Vendor Name.")
 
     
 
-    # Merge with date posted dim df
-    if not gl_date_posted_df.empty:
-        ost_bank_chks_final = pd.merge(
-            ost_bank_chks_final,
-            gl_date_posted_df[[GL_TRANSACTION_NUMBER_COL, 'Transaction Date']], # Only merge necessary columns
-            left_on=OUTSTANDING_CHECK_NUMBER_COL,
-            right_on=GL_TRANSACTION_NUMBER_COL,
-            how='left',
-            suffixes=('_current', '_date_dim')
-        )
+    # # Merge with date posted dim df
+    # if not gl_date_posted_df.empty:
+    #     ost_bank_chks_final = pd.merge(
+    #         ost_bank_chks_final,
+    #         gl_date_posted_df[[GL_TRANSACTION_NUMBER_COL, 'Transaction Date']], # Only merge necessary columns
+    #         left_on=OUTSTANDING_CHECK_NUMBER_COL,
+    #         right_on=GL_TRANSACTION_NUMBER_COL,
+    #         how='left',
+    #         suffixes=('_current', '_date_dim')
+    #     )
 
-        ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL] = np.where(
-            ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL].isnull(),
-            ost_bank_chks_final['Transaction Date'],
-            ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL]
-        )
-        ost_bank_chks_final = ost_bank_chks_final.drop(columns=['Transaction Date', GL_TRANSACTION_NUMBER_COL + '_date_dim'], errors='ignore')
-    else:
-        logger.warning("GL Date Posted DataFrame is empty. Skipping merge for Date posted.")
+    #     ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL] = np.where(
+    #         ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL].isnull(),
+    #         ost_bank_chks_final['Transaction Date'],
+    #         ost_bank_chks_final[OUTSTANDING_DATE_POSTED_COL]
+    #     )
+    #     ost_bank_chks_final = ost_bank_chks_final.drop(columns=['Transaction Date', GL_TRANSACTION_NUMBER_COL + '_date_dim'], errors='ignore')
+    # else:
+    #     logger.warning("GL Date Posted DataFrame is empty. Skipping merge for Date posted.")
 
 
     # Define the final desired column order for the output

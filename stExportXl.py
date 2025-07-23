@@ -331,7 +331,7 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
             if sheet_name == GL_VS_BANK_SHEET_NAME:
                 data_end_col_excel_for_border = 19 # Column 'T' (0-indexed)
             elif sheet_name == OUTSTANDING_CHECK_SHEET_NAME:
-                data_end_col_excel_for_border = 15 # Column 'P' (0-indexed)
+                data_end_col_excel_for_border = 16 # Column 'P' (0-indexed)
             else:
                 # Fallback to the last column of the DataFrame if sheet name is not specifically handled
                 data_end_col_excel_for_border = len(original_df_data.columns) - 1

@@ -103,6 +103,7 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         # Get party dimension table
         mrg_final_party_df = get_party_dimension_table(gl_cleaned)
         
+        
 
 
         # Prepare date posted dim table
@@ -116,14 +117,14 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         ost_bank_chks = process_outstanding_bank_checks(outstanding_df, bank_cleaned)
 
         # Identify new outstanding checks from GL
-        trans_not_inbank_reqcols_ost = get_new_outstanding_from_gl(matched_gl_bank_with_comments, ost_bank_chks)
+        trans_not_inbank_reqcols_ost = get_new_outstanding_from_gl(matched_gl_bank_with_comments, ost_bank_chks, mrg_final_party_df, dateposted_req_cols)
 
         # Consolidate all outstanding checks and merge with dimension tables
         ost_bank_chks_final = consolidate_outstanding_checks(
             ost_bank_chks,
-            trans_not_inbank_reqcols_ost,
-            mrg_final_party_df,
-            dateposted_req_cols
+            trans_not_inbank_reqcols_ost #,
+            # mrg_final_party_df,
+            # dateposted_req_cols
         )
         styled_ost_bank_chks = ost_bank_chks_final.style \
             .set_properties(**{'border': '1px solid black', 'border-color': 'black'})
@@ -150,7 +151,7 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
             header_text_color=HEADER_TEXT_COLOR_PIVOT,
             data_cell_border_color=DATA_CELL_BORDER_COLOR_PIVOT,
             spacing_rows = 2,
-            spacing_cols = 2
+            spacing_cols = 2,
         )
         if summary_sheet_write_status == False:
             logger.error("Failed to write reconciliation summary sheet.")

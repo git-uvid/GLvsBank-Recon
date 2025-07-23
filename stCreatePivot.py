@@ -47,6 +47,8 @@ def create_bank_pivot(bank_df: pd.DataFrame) -> pd.DataFrame:
             values=[BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL],
             index=BANK_TRN_TYPE_COL,
             aggfunc='sum',
+            margins= True,
+            margins_name='Total',
             fill_value=0
         )
         bank_pivot['sum Cr Dr'] = bank_pivot[BANK_CREDIT_AMOUNT_COL] + bank_pivot[BANK_DEBIT_AMOUNT_COL]
@@ -90,6 +92,8 @@ def create_gl_pivot(gl_df: pd.DataFrame) -> pd.DataFrame:
             values=[GL_ACCOUNTED_CR_COL, GL_ACCOUNTED_DR_COL],
             index=GL_TYPE_COL,
             aggfunc='sum',
+            margins= True,
+            margins_name='Total',
             fill_value=0
         )
         if GL_ACCOUNTED_DR_COL in gl_pivot.columns and GL_ACCOUNTED_CR_COL in gl_pivot.columns:
@@ -139,6 +143,13 @@ def create_difference_grid(bank_pivot: pd.DataFrame, gl_pivot: pd.DataFrame) -> 
         difference_table['GL Sum'] = gl_aligned['Net_Sum']
         difference_table['Difference'] = difference_table['Bank Sum'] - difference_table['GL Sum']
         difference_table.index.name = "Type" # Consolidated name for difference table index
+        # Add grand total row at the bottom
+        total_row = pd.DataFrame(
+            difference_table.sum(numeric_only=True)
+        ).T
+        total_row.index = ['Total']
+        difference_table = pd.concat([difference_table, total_row])
+        
         logger.info("Difference grid created successfully.")
         return difference_table
     except KeyError as e:
