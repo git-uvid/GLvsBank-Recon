@@ -27,7 +27,7 @@ def create_bank_pivot(bank_df: pd.DataFrame) -> pd.DataFrame:
     bank_data_copy = bank_df.copy()
 
     # Ensure numeric types and fill NA
-    for col in [BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL]:
+    for col in [BANK_DEBIT_AMOUNT_COL,BANK_CREDIT_AMOUNT_COL]:
         if col in bank_data_copy.columns:
             bank_data_copy[col] = pd.to_numeric(bank_data_copy[col], errors='coerce').fillna(0)
         else:
@@ -44,7 +44,7 @@ def create_bank_pivot(bank_df: pd.DataFrame) -> pd.DataFrame:
     try:
         bank_pivot = pd.pivot_table(
             bank_data_copy,
-            values=[BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL],
+            values=[BANK_DEBIT_AMOUNT_COL,BANK_CREDIT_AMOUNT_COL],
             index=BANK_TRN_TYPE_COL,
             aggfunc='sum',
             margins= True,
@@ -101,7 +101,6 @@ def create_gl_pivot(gl_df: pd.DataFrame) -> pd.DataFrame:
         else:
             logger.error("Cannot calculate 'sum Accounted Cr Dr': Missing Accounted DR or CR columns in GL pivot.")
             gl_pivot['sum Accounted Cr Dr'] = np.nan
-
         gl_pivot.columns = ['GL ' + col for col in gl_pivot.columns.values]
         logger.info("GL pivot table created successfully.")
         return gl_pivot
@@ -126,9 +125,13 @@ def create_difference_grid(bank_pivot: pd.DataFrame, gl_pivot: pd.DataFrame) -> 
     """
     logger.info("Creating difference grid between bank and GL pivot tables.")
     try:
+        
+        #bank_pivot = bank_pivot[bank_pivot['TRN TYPE'] != 'Total']
+        bank_pivot = bank_pivot[bank_pivot.index != 'Total']
         bank_temp = bank_pivot[['Banking Credit amount', 'Banking Debit amount', 'Banking sum Cr Dr']].copy()
         bank_temp.columns = ['Credit', 'Debit', 'Net_Sum']
 
+        gl_pivot = gl_pivot[gl_pivot.index != 'Total'] 
         gl_temp = gl_pivot[['GL Accounted CR', 'GL Accounted DR', 'GL sum Accounted Cr Dr']].copy()
         gl_temp.columns = ['Credit', 'Debit', 'Net_Sum']
 

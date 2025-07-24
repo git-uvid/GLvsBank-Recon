@@ -131,7 +131,6 @@ def process_outstanding_bank_checks(outstanding_df: pd.DataFrame, bank_df: pd.Da
     ost_bank_chks[OUTSTANDING_CLEARED_COL] = np.where(ost_bank_chks['updated status'] == "Check cleared", "yes", 'no')
     logger.info("Outstanding bank checks processed.")
 
-    #ost_bank_chks.to_excel('ost_test.xlsx', index= False)
     return ost_bank_chks
 
 

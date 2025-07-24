@@ -270,7 +270,6 @@ def rename_bank_trn_type(df: pd.DataFrame) -> pd.DataFrame:
         #Find the best match
         data_copy[BANK_TRN_TYPE_COL] = data_copy[BANK_TRN_TYPE_COL].apply(find_best_match)
 
-        data_copy.to_excel('banktrantype_modified.xlsx')
         """"
         if BANK_TRN_TYPE_COL in data_copy.columns:
             data_copy[BANK_TRN_TYPE_COL] = np.where(

@@ -96,6 +96,15 @@ def write_reconciliation_summary_sheet(
             'border_color': data_cell_border_color
         })
 
+        #Format total records
+        total_row_format = workbook.add_format({
+            'bold': True,
+            'bg_color': '#D9E1F2',  # Light blue/grey background
+            'border': 1,
+            'border_color': data_cell_border_color,
+            'num_format': '$#,##0.00' # Ensure currency format for totals too
+        })
+
         # --- Determine Placement for each table ---
         tables_to_export_and_layout = [
             {'df': bank_pivot_df, 'name': 'Bank Pivot Summary'},
@@ -191,6 +200,29 @@ def write_reconciliation_summary_sheet(
                 data_end_row_excel, data_end_col_excel,
                 {'type': 'no_blanks', 'format': border_only_format}
             )
+
+            # Apply total row formatting to the last row of the table, only to non-empty cells
+            if not df_to_write.empty:
+                last_data_row_excel = start_row + len(df_to_write) # This is the Excel row number for the total row data
+                last_df_row = df_to_write.iloc[-1] # Get the last row of the DataFrame
+
+                # Handle index cell of the total row
+                # Check if the index name exists and the last row's index value is not NaN
+                if df_to_write.index.name and pd.notna(last_df_row.name):
+                    worksheet.write(last_data_row_excel, start_col, last_df_row.name, total_row_format)
+                # If no index name but the index itself has a value (e.g., 'Total' string)
+                elif not df_to_write.index.name and not pd.isna(df_to_write.index[-1]) and str(df_to_write.index[-1]).strip() != '':
+                     worksheet.write(last_data_row_excel, start_col, df_to_write.index[-1], total_row_format)
+
+
+                # Iterate through data columns of the last row
+                for col_idx, col_name in enumerate(df_to_write.columns):
+                    excel_col_num = start_col + col_idx + 1 # +1 for the index column
+                    cell_value = last_df_row[col_name]
+
+                    # Check if the cell is not empty (e.g., not NaN, not empty string)
+                    if pd.notna(cell_value) and str(cell_value).strip() != '':
+                        worksheet.write(last_data_row_excel, excel_col_num, cell_value, total_row_format)
 
 
         logger.info(f"Reconciliation summary written to sheet '{sheet_name}' successfully.")
@@ -329,9 +361,9 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
 
             # Set the specific end column index for borders for each sheet
             if sheet_name == GL_VS_BANK_SHEET_NAME:
-                data_end_col_excel_for_border = 19 # Column 'T' (0-indexed)
+                data_end_col_excel_for_border = 18 # Column 'S' (0-indexed)
             elif sheet_name == OUTSTANDING_CHECK_SHEET_NAME:
-                data_end_col_excel_for_border = 16 # Column 'P' (0-indexed)
+                data_end_col_excel_for_border = 16 # Column 'Q' (0-indexed)
             else:
                 # Fallback to the last column of the DataFrame if sheet name is not specifically handled
                 data_end_col_excel_for_border = len(original_df_data.columns) - 1

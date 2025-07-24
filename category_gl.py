@@ -190,9 +190,6 @@ def gl_type(gl:pd.DataFrame, bank:pd.DataFrame) -> pd.DataFrame:
                     )
                 )
             )
-        #*******************************************************************
-        gl.to_excel("glcategorized.xlsx")
-        #*******************************************************************
         # 11. Drop all intermediate type columns except the final type column
         type_columns = [
             'BankTransaction_BasedType', 'IsCheck', 'IsACH', 'IsZBA/Interest',

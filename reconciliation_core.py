@@ -52,7 +52,7 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         
 
         gl_agg = gl_cleaned.groupby([
-            'CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Period Name','Source',
+            'CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Period Name',
             GL_TRANSACTION_NUMBER_COL, GL_TYPE_COL,
         ], as_index=False)[GL_ACCOUNTED_SUM_COL].sum()
         gl_agg = gl_agg[gl_agg[GL_ACCOUNTED_SUM_COL] != 0].copy() # Filter out zero accounted sum
@@ -83,10 +83,10 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
 
         # Rename columns for clarity in the output report
         matched_gl_bank_formatted.columns = [
-             'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project',
-            'GL_Period Name','GL_Source','Key_Transaction Number','Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status',
-            'Bnk_Value date', 'Bnk_Credit amount', 'Bnk_Debit amount','Bnk_Time', 'Bnk_Post date', 'Bnk_Comparsion_Key','Bnk_Accounted Sum',
-            'variance', 'comment'
+            'GL_CO', 'GL_AU', 'GL_Acct', 'GL_Sub Acct', 'GL_Project',
+            'GL_Period Name','Key_Transaction Number','Key_Type', 'GL_Accounted Sum', 'Bnk_TRN status',
+            'Bnk_Value date', 'Bnk_Credit amount', 'Bnk_Debit amount','Bnk_Time', 'Bnk_Post date', 
+            'Bnk_Comparsion_Key','Bnk_Accounted Sum','variance', 'comment'
         ]
 
         # Reorder columns for clarity in the output report
@@ -103,9 +103,6 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
         # Get party dimension table
         mrg_final_party_df = get_party_dimension_table(gl_cleaned)
         
-        
-
-
         # Prepare date posted dim table
 
         dateposted_req_cols = gl_cleaned[[GL_TRANSACTION_NUMBER_COL, 'Transaction Date', GL_TYPE_COL]]
