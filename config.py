@@ -8,8 +8,8 @@ filter values, promoting readability, maintainability, and testability.
 
 
 # --- File and Sheet Names ---
-GL_FILE_SHEET_NAME = 'GL Categorized'
-BANK_FILE_SHEET_NAME = 'Bank Categorized'
+GL_FILE_SHEET_NAME = 'LN - GL Account Analysis Report'
+BANK_FILE_SHEET_NAME = 'Categorized'
 OUTSTANDING_CHECK_REPORT_SHEET_NAME = 'Outstanding Check Report'
 EXCEL_OUTPUT_FILENAME = 'financial_reconciliation_report.xlsx'
 PIVOT_SHEET_NAME = "pivot"
