@@ -87,6 +87,8 @@ def process_outstanding_bank_checks(outstanding_df: pd.DataFrame, bank_df: pd.Da
         logger.error(f"Missing required columns in bank_df for processing: '{CUSTOMER_REFERENCE_COL}', '{BANK_CREDIT_AMOUNT_COL}', '{BANK_DEBIT_AMOUNT_COL}'.")
         return pd.DataFrame()
 
+    # Removing Manual Checks
+    outstanding_df = outstanding_df[outstanding_df[OUTSTANDING_CHECK_NUMBER_COL]!="Manual Checks"]
     ost_bank_chks = pd.merge(
         outstanding_df,
         bank_df,
@@ -341,3 +343,4 @@ def consolidate_outstanding_checks(
 
     logger.info("Outstanding checks consolidation complete.")
     return ost_bank_chks_final
+
