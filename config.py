@@ -116,6 +116,7 @@ NO_REFERENCE_NUMBER = 'No_Reference_Number'
 #-----------Added as part of gl categorization--------------
 DESC_CHECK_SEARCH1 = 'manual checks'
 DESC_CHECK_SEARCH2 = 'ck#'
+DESC_TRANSNO_SEARCH1 = 'ref#'
 ACH_TRANSNO_SEARCH = '640'
 ZBA_JOURNAL_SEARCH = 'ZBA'
 INTEREST_DESC_SEARCH = 'interest'
@@ -159,4 +160,5 @@ CURRENCY_COLUMNS = [
     'Banking Credit amount', 'Banking Debit amount', 'Banking sum Cr Dr', # From Bank Pivot
     'GL Accounted CR', 'GL Accounted DR', 'GL sum Accounted Cr Dr', # From GL Pivot
     'Bank Sum', 'GL Sum', 'Difference' # From Difference Grid
+
 ]
