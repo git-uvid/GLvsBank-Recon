@@ -11,14 +11,14 @@ from config import (
     GL_ACCOUNTED_SUM_COL, BANK_COMPARISON_KEY_COL, GL_NO_TRANS_NUMBER,
     NO_REFERENCE_NUMBER, COMMENT_GL_NO_BANK_YES, COMMENT_GL_YES_BANK_NO,
     COMMENT_FULL_MATCH, COMMENT_PARTIAL_MATCH, BANK_TRN_TYPE_COL,BANK_CATEGORY_LIST,
-    DESCRIPTION_COL,DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2
+    DESCRIPTION_COL,DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2, DESC_TRANSNO_SEARCH1
 )
 
 # Configure logging
 logger = logging.getLogger(__name__)
 
 def fill_transaction_number_basedonDesc(df:pd.DataFrame,transCol:str,descCol:str,
-                                        descSearch1:str,descSearch2:str) ->pd.DataFrame:
+                                        descSearch1:str,descSearch2:str, descSearch3:str) ->pd.DataFrame:
     """
     Fills transaction number based on the description Manual checks and CK#
     This function is specifically implemented to handle check reversals
@@ -48,6 +48,21 @@ def fill_transaction_number_basedonDesc(df:pd.DataFrame,transCol:str,descCol:str
         extracted = df.loc[mask, descCol].apply(extract_ck)
         df.loc[mask & extracted.notna(), transCol] = extracted
         logger.info("Completed CK# extraction and DataFrame update.")
+                
+        # Compile regex
+        pattern1 = re.compile(rf"{re.escape(descSearch3)}\s*(\S+)", flags=re.IGNORECASE)
+
+        # Function to extract transaction number
+        def extract_transaction(text: str) -> str:
+            match = pattern1.search(text)
+            return match.group(1) if match else ""
+
+        # Mask for empty / No_Transaction_Number
+        mask = df[transCol].isin(['', 'No_Transaction_Number'])
+
+        # Apply the function
+        df.loc[mask, transCol] = df.loc[mask, descCol].apply(extract_transaction)
+        logger.info("Completed REF# extraction and DataFrame update.")
         
         return df
 
@@ -203,7 +218,7 @@ def clean_and_prepare_gl_bank_data(gl_df: pd.DataFrame, bank_df: pd.DataFrame) -
     logger.info("Starting initial cleaning and preparation of GL and Bank data.")
 
     gl_withtrans_basedonDesc = fill_transaction_number_basedonDesc(gl_df,GL_TRANSACTION_NUMBER_COL,DESCRIPTION_COL,
-                                                                   DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2)
+                                                                   DESC_CHECK_SEARCH1,DESC_CHECK_SEARCH2, DESC_TRANSNO_SEARCH1)
 
     # Handle missing transaction numbers in GL
     gl_df_cleaned = handle_missing_transaction_numbers(gl_withtrans_basedonDesc, GL_TRANSACTION_NUMBER_COL, 'Tr')
@@ -279,5 +294,6 @@ def rename_bank_trn_type(df: pd.DataFrame) -> pd.DataFrame:
     else:
         logger.error(f"Column '{BANK_TRN_TYPE_COL}' not found for renaming TRN types.")
     return data_copy
+
 
     
