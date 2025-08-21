@@ -7,7 +7,8 @@ from config import (
     GL_TRANSACTION_NUMBER_COL, OUTSTANDING_CHECK_NUMBER_COL, OUTSTANDING_AMOUNT_COL,
     OUTSTANDING_CLEARED_COL, OUTSTANDING_DATE_POSTED_COL, OUTSTANDING_VENDOR_NAME_COL,
     BANK_CREDIT_AMOUNT_COL, BANK_DEBIT_AMOUNT_COL, CUSTOMER_REFERENCE_COL,
-    GL_TYPE_COL, COMMENT_GL_YES_BANK_NO, BANK_REFERENCE_COL, BANK_TRN_TYPE_COL
+    GL_TYPE_COL, COMMENT_GL_YES_BANK_NO, BANK_REFERENCE_COL, BANK_TRN_TYPE_COL,PARTY_NAME_SEARCH1, 
+    PARTY_NAME_SEARCH2 
 )
 
 logger = logging.getLogger(__name__)
@@ -340,7 +341,52 @@ def consolidate_outstanding_checks(
     # Filter and reorder columns, handling cases where columns might be missing
     final_df_cols = [col for col in final_cols_order if col in ost_bank_chks_final.columns]
     ost_bank_chks_final = ost_bank_chks_final[final_df_cols].copy()
-
     logger.info("Outstanding checks consolidation complete.")
     return ost_bank_chks_final
+
+
+def update_descriptions_OST(final_ost:pd.DataFrame,gl_cleaned:pd.DataFrame) -> pd.DataFrame:
+    """
+    There are empty party names in the outstanding check report. This method updates the empty party names
+    with description based on the check number in outstanding check report
+
+    Args: 
+    final_ost: Outstanding check dataframe after all the transformation
+    gl_cleaned: cleaned gl dataframe
+        
+    Returns:
+    return ost_final_chks_desc_merged : with descriptions filled in empty party name column 
+    """
+    # Step 1: Merge the two dataframes on 'transaction_number'
+    ost_final_chks_desc_merged = final_ost.merge(gl_cleaned[['Transaction Number', 'Description']], 
+                        left_on='Check number',
+                        right_on = 'Transaction Number',
+                        how='left', 
+                        suffixes=('', '_gl'))
+    
+    # Step 2: Fill missing values in 'description' column of ost_final with values from gl_cleaned
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description'])
+    
+    # Step 3: Drop the helper column if needed
+    ost_final_chks_desc_merged .drop(columns=['Description','Transaction Number'], inplace=True)
+
+    logger.info("Outstanding check report manual checks are highlighted.")
+    return ost_final_chks_desc_merged
+    
+def get_manualchecks_format_style(partyname: str) -> str:
+    """
+    Returns CSS style string based on the party name value for conditional formatting.
+    This function is primarily used for pandas Styler objects.
+
+    Args:
+    party name (str): The comment string.
+
+    Returns:
+    str: CSS style string.
+    """
+    lower_party_name = str(partyname).lower()
+    if PARTY_NAME_SEARCH1 in lower_party_name or PARTY_NAME_SEARCH2 in lower_party_name:
+        return 'background-color: yellow; color: black'
+    else:
+        return 'background-color: white; color: black'
 

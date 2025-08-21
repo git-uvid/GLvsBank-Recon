@@ -133,6 +133,10 @@ AR_BATCH_SEARCH = ['receivable','ar','ON ACCOUNT','receipt','cash']
 WIRE_BATCH_SEARCH = ['payables','wire']
 TRANS_CHECK_SEARCH1 = '1112'
 TRANS_CHECK_SEARCH2 = '340'
+
+#---------------------------------Added as part of highlighting manual checks in outstanding checks---------------------------
+PARTY_NAME_SEARCH1 = 'manual checks'
+PARTY_NAME_SEARCH2 = 'ck#'
  
 # --- Styling Colors ---
 HEADER_BG_COLOR_PIVOT = '#4472C4' # Blue

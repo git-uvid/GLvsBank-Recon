@@ -6,7 +6,9 @@ import logging
 from stCreatePivot import create_bank_pivot, create_gl_pivot, create_difference_grid
 from stExportXl import write_reconciliation_summary_sheet, export_formatted_excel, get_comment_format_style
 from stBankGL import clean_and_prepare_gl_bank_data, create_bank_comparison_key, calculate_variance_and_comments, rename_bank_trn_type
-from stOutstanding import get_party_dimension_table, process_outstanding_bank_checks, get_new_outstanding_from_gl, consolidate_outstanding_checks
+from stOutstanding import (
+    get_party_dimension_table, process_outstanding_bank_checks, get_new_outstanding_from_gl, 
+    consolidate_outstanding_checks,update_descriptions_OST,get_manualchecks_format_style)
 from category_gl import gl_type
 
 # Import constants from config.py
@@ -123,8 +125,13 @@ def run_full_reconciliation(gl_df: pd.DataFrame, bank_df: pd.DataFrame, outstand
             # mrg_final_party_df,
             # dateposted_req_cols
         )
-        styled_ost_bank_chks = ost_bank_chks_final.style \
-            .set_properties(**{'border': '1px solid black', 'border-color': 'black'})
+
+        #********************Added as part of new change on 18-Aug*******************
+        ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+
+        styled_ost_bank_chks = ost_bank_chks_manualchecks.style \
+                        .map(get_manualchecks_format_style,subset=['Party Name']) \
+            			.set_properties(**{'border': '1px solid black', 'border-color': 'black'})
         logger.info("Outstanding checks processed and consolidated.")
 
         # 6. Create Pivot Tables

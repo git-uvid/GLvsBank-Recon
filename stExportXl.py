@@ -8,8 +8,7 @@ from config import (
     COMMENT_FULL_MATCH, COMMENT_GL_YES_BANK_NO, COMMENT_PARTIAL_MATCH,
     HEADER_BG_COLOR_PIVOT, HEADER_TEXT_COLOR_PIVOT, DATA_CELL_BORDER_COLOR_PIVOT,
     HEADER_BG_COLOR_RECON, HEADER_TEXT_COLOR_RECON, DATA_CELL_BORDER_COLOR_RECON,
-    GL_VS_BANK_SHEET_NAME, OUTSTANDING_CHECK_SHEET_NAME, # Import sheet names
-    CURRENCY_COLUMNS
+    GL_VS_BANK_SHEET_NAME,PARTY_NAME_SEARCH1,PARTY_NAME_SEARCH2, OUTSTANDING_CHECK_SHEET_NAME, CURRENCY_COLUMNS# Import sheet names
 )
 
 logger = logging.getLogger(__name__)
@@ -391,12 +390,29 @@ def export_formatted_excel(dataframes_dict: dict, writer_obj: pd.ExcelWriter = N
                 # Iterate through rows to apply format to the specific comment cell
                 for row_num, comment_value in enumerate(original_df_data['comment']):
                     excel_row = row_num + 1 # Data starts at row 1
-                    
                     # Get the format from the dictionary, defaulting if not found
                     format_to_apply = comment_formats.get(comment_value, comment_formats['default'])
-                    
                     # Apply format to the specific comment cell, preserving other column formats
                     worksheet.write(excel_row, comment_col_idx, comment_value, format_to_apply)
+
+            #Apply conditiona formatting for the 'party Name' in column if it exists
+            
+            # Create the specific format for the highlight
+            highlight_format = workbook.add_format({
+                    'bg_color': '#FFFF00', # Yellow
+                    'font_color': '#000000',
+                    'border': 1,
+                    'border_color': '#000000',
+                    "text_wrap": True,
+                    "valign": "top",
+                })
+            if sheet_name == OUTSTANDING_CHECK_SHEET_NAME and 'Party Name' in original_df_data.columns:
+                party_name_col_idx = original_df_data.columns.get_loc('Party Name')
+                for row_num,party_value in enumerate(original_df_data['Party Name']):
+                    excel_row = row_num + 1
+                    if PARTY_NAME_SEARCH1 in str(party_value).lower() or PARTY_NAME_SEARCH2 in str(party_value).lower():
+                        worksheet.write(excel_row, party_name_col_idx, party_value, highlight_format) 
+                    
 
 
         # Only close the writer if it was created internally

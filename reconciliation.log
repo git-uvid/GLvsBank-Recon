@@ -822,3 +822,1014 @@
 2025-07-23 16:24:44,802 - reconciliation_core - INFO - Excel report generated successfully.
 2025-07-23 16:24:46,765 - app_ui - INFO - Header displayed.
 2025-07-23 16:24:46,766 - app_ui - INFO - Session state initialized.
+2025-08-18 17:07:42,483 - app_ui - INFO - Header displayed.
+2025-08-18 17:07:42,485 - app_ui - INFO - Session state initialized.
+2025-08-18 17:07:58,297 - app_ui - INFO - Header displayed.
+2025-08-18 17:07:58,298 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:02,510 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:02,510 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:03,649 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:03,650 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:06,584 - app_ui - INFO - Files uploaded and processed.
+2025-08-18 17:08:18,230 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:18,231 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:18,250 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:08:18,250 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:08:18,268 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:08:18,272 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:08:18,273 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:08:18,279 - stBankGL - INFO - Found 462 missing values in 'Transaction Number'. Filling them.
+2025-08-18 17:08:18,296 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:08:18,297 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:08:18,674 - category_gl - INFO - Starting GL type classification.
+2025-08-18 17:08:18,678 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2025-08-18 17:08:18,679 - category_gl - INFO - Fill Checks based on the SOP
+2025-08-18 17:08:18,689 - category_gl - INFO - Checks filled based on SOP
+2025-08-18 17:08:18,690 - category_gl - INFO - Fill ACH based on SOP
+2025-08-18 17:08:18,694 - category_gl - INFO - ACH filled based on SOP
+2025-08-18 17:08:18,694 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2025-08-18 17:08:18,712 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2025-08-18 17:08:18,712 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 17:08:18,717 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 17:08:18,718 - category_gl - INFO - Fill square based on SOP
+2025-08-18 17:08:18,727 - category_gl - INFO - Filled square based on SOP
+2025-08-18 17:08:18,728 - category_gl - INFO - Fill ticketing based on SOP
+2025-08-18 17:08:18,738 - category_gl - INFO - Filled ticketing based on SOP
+2025-08-18 17:08:18,739 - category_gl - INFO - Fill AR based on Batch name
+2025-08-18 17:08:18,755 - category_gl - INFO - Filled AR based on Batch name
+2025-08-18 17:08:18,756 - category_gl - INFO - Fill wire based on Batch name
+2025-08-18 17:08:18,766 - category_gl - INFO - Filled wire based on Batch name
+2025-08-18 17:08:18,772 - category_gl - INFO - GL type classification completed successfully.
+2025-08-18 17:08:24,383 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:24,384 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:46,479 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:46,480 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:49,834 - app_ui - INFO - Header displayed.
+2025-08-18 17:08:49,835 - app_ui - INFO - Session state initialized.
+2025-08-18 17:08:51,584 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:08:51,585 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:08:51,585 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:08:51,592 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:08:51,594 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:08:51,595 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:08:51,606 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:08:51,621 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:08:51,622 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:08:52,515 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:08:52,558 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:08:52,580 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:08:52,602 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:08:52,603 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:08:53,072 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:08:53,073 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:08:53,173 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:08:53,183 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:08:53,198 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:08:53,199 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:08:53,232 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:08:53,278 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:08:53,308 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:08:53,314 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Check number'
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 362, in update_descriptions_OST
+    ost_final_chks_desc_merged = final_ost.merge(gl_cleaned[['Transaction Number', 'Description']],
+                        on='Check number',
+                        how='left',
+                        suffixes=('', '_gl'))
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 10839, in merge
+    return merge(
+        self,
+    ...<11 lines>...
+        validate=validate,
+    )
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 170, in merge
+    op = _MergeOperation(
+        left_df,
+    ...<10 lines>...
+        validate=validate,
+    )
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 794, in __init__
+    ) = self._get_merge_keys()
+        ~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 1297, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\generic.py", line 1911, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'Check number'
+2025-08-18 17:10:54,126 - app_ui - INFO - Header displayed.
+2025-08-18 17:10:54,127 - app_ui - INFO - Session state initialized.
+2025-08-18 17:10:54,727 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:10:54,728 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:10:54,729 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:10:54,734 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:10:54,737 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:10:54,738 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:10:54,743 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:10:54,750 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:10:54,751 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:10:55,022 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:10:55,034 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:10:55,041 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:10:55,047 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:10:55,048 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:10:55,056 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:10:55,056 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:10:55,120 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:10:55,124 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:10:55,140 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:10:55,141 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:10:55,146 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:10:55,155 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:10:55,194 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:10:55,195 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Check number'
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 362, in update_descriptions_OST
+    ost_final_chks_desc_merged = final_ost.merge(gl_cleaned[['Transaction Number', 'Description']],
+                        on='Check number',
+                        how='left',
+                        suffixes=('', '_gl'))
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 10839, in merge
+    return merge(
+        self,
+    ...<11 lines>...
+        validate=validate,
+    )
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 170, in merge
+    op = _MergeOperation(
+        left_df,
+    ...<10 lines>...
+        validate=validate,
+    )
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 794, in __init__
+    ) = self._get_merge_keys()
+        ~~~~~~~~~~~~~~~~~~~~^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\reshape\merge.py", line 1297, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\generic.py", line 1911, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'Check number'
+2025-08-18 17:17:00,367 - app_ui - INFO - Header displayed.
+2025-08-18 17:17:00,493 - app_ui - INFO - Session state initialized.
+2025-08-18 17:17:16,380 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:17:16,401 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:17:16,454 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:17:16,713 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:17:16,744 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:17:16,851 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:17:16,945 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:17:17,040 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:17:17,046 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:17:22,808 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:17:23,052 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:17:23,184 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:17:23,294 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:17:23,316 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:17:23,626 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:17:23,633 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:17:24,027 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:17:24,883 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:17:25,709 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:17:25,814 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:17:25,957 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:17:26,458 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:17:27,024 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:17:27,060 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'description'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'description'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 369, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['description'].fillna(ost_final_chks_desc_merged ['description_gl'])
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'description'
+2025-08-18 17:18:35,778 - app_ui - INFO - Header displayed.
+2025-08-18 17:18:35,779 - app_ui - INFO - Session state initialized.
+2025-08-18 17:18:36,382 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:18:36,383 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:18:36,383 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:18:36,389 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:18:36,391 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:18:36,391 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:18:36,397 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:18:36,408 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:18:36,409 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:18:36,768 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:18:36,787 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:18:36,794 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:18:36,808 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:18:36,809 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:18:36,820 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:18:36,821 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:18:36,845 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:18:36,852 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:18:36,859 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:18:36,859 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:18:36,869 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:18:36,877 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:18:36,888 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:18:36,926 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'description'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'description'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 369, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['description'].fillna(ost_final_chks_desc_merged ['description_gl'])
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'description'
+2025-08-18 17:20:21,789 - app_ui - INFO - Header displayed.
+2025-08-18 17:20:21,790 - app_ui - INFO - Session state initialized.
+2025-08-18 17:20:22,122 - app_ui - INFO - Header displayed.
+2025-08-18 17:20:22,140 - app_ui - INFO - Session state initialized.
+2025-08-18 17:20:34,413 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:20:34,414 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:20:34,416 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:20:34,442 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:20:34,449 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:20:34,450 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:20:34,476 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:20:34,510 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:20:34,516 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:20:36,182 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:20:36,254 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:20:36,298 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:20:36,351 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:20:36,352 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:20:36,383 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:20:36,384 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:20:36,474 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:20:36,485 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:20:36,524 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:20:36,527 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:20:36,556 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:20:36,596 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:20:36,632 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:20:36,653 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Description_gl'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Description_gl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 368, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description_gl'])
+                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Description_gl'
+2025-08-18 17:21:13,623 - app_ui - INFO - Header displayed.
+2025-08-18 17:21:13,624 - app_ui - INFO - Session state initialized.
+2025-08-18 17:21:17,341 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:21:17,342 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:21:17,343 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:21:17,359 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:21:17,364 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:21:17,366 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:21:17,378 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:21:17,405 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:21:17,409 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:21:18,567 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:21:18,622 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:21:18,654 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:21:18,686 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:21:18,689 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:21:18,721 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:21:18,723 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:21:18,808 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:21:18,825 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:21:18,848 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:21:18,850 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:21:18,876 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:21:18,913 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:21:18,946 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:21:18,960 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Description_gl'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Description_gl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 368, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description_gl'])
+                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Description_gl'
+2025-08-18 17:22:05,045 - app_ui - INFO - Header displayed.
+2025-08-18 17:22:05,046 - app_ui - INFO - Session state initialized.
+2025-08-18 17:22:06,809 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:22:06,810 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:22:06,811 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:22:06,832 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:22:06,837 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:22:06,838 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:22:06,850 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:22:06,870 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:22:06,872 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:22:07,552 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:22:07,594 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:22:07,619 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:22:07,648 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:22:07,649 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:22:07,670 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:22:07,671 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:22:07,737 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:22:07,745 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:22:07,765 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:22:07,766 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:22:07,782 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:22:07,801 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:22:07,818 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:22:07,826 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Description_gl'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Description_gl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 368, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description_gl'])
+                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Description_gl'
+2025-08-18 17:22:24,667 - app_ui - INFO - Header displayed.
+2025-08-18 17:22:24,667 - app_ui - INFO - Session state initialized.
+2025-08-18 17:22:25,186 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:22:25,187 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:22:25,187 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:22:25,192 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:22:25,194 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:22:25,194 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:22:25,198 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:22:25,204 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:22:25,205 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:22:25,420 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:22:25,431 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:22:25,438 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:22:25,444 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:22:25,444 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:22:25,451 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:22:25,452 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:22:25,471 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:22:25,475 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:22:25,480 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:22:25,481 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:22:25,488 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:22:25,496 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:22:25,504 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:22:25,528 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Description_gl'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Description_gl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 370, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description_gl'])
+                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Description_gl'
+2025-08-18 17:22:30,837 - app_ui - INFO - Header displayed.
+2025-08-18 17:22:30,838 - app_ui - INFO - Session state initialized.
+2025-08-18 17:22:33,645 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:22:33,646 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:22:33,647 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:22:33,661 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:22:33,667 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:22:33,668 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:22:33,677 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:22:33,694 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:22:33,696 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:22:34,504 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:22:34,540 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:22:34,562 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:22:34,580 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:22:34,582 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:22:34,600 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:22:34,601 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:22:34,653 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:22:34,660 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:22:34,678 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:22:34,679 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:22:34,698 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:22:34,722 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:22:34,736 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:22:34,801 - reconciliation_core - ERROR - An unhandled error occurred during the full reconciliation process: 'Description_gl'
+Traceback (most recent call last):
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Description_gl'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\reconciliation_core.py", line 130, in run_full_reconciliation
+    ost_bank_chks_manualchecks = update_descriptions_OST(ost_bank_chks_final , gl_cleaned)
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stOutstanding.py", line 370, in update_descriptions_OST
+    ost_final_chks_desc_merged ['Party Name'] = ost_final_chks_desc_merged ['Party Name'].fillna(ost_final_chks_desc_merged ['Description_gl'])
+                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Description_gl'
+2025-08-18 17:23:27,532 - app_ui - INFO - Header displayed.
+2025-08-18 17:23:27,533 - app_ui - INFO - Session state initialized.
+2025-08-18 17:23:28,237 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:23:28,238 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:23:28,239 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:23:28,247 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:23:28,250 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:23:28,251 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:23:28,257 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:23:28,267 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:23:28,268 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:23:28,615 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:23:28,638 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:23:28,646 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:23:28,656 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:23:28,657 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:23:28,668 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:23:28,668 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:23:28,693 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:23:28,700 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:23:28,707 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:23:28,708 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:23:28,717 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:23:28,728 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:23:28,739 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:23:28,776 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 17:23:28,777 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 17:23:28,777 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 17:23:28,798 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 17:23:28,798 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 17:23:28,821 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 17:23:28,823 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 17:23:28,839 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 17:23:28,840 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 17:23:28,840 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 17:23:28,858 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 17:23:28,859 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 17:23:30,665 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 17:23:45,846 - app_ui - INFO - Header displayed.
+2025-08-18 17:23:45,846 - app_ui - INFO - Session state initialized.
+2025-08-18 17:24:58,025 - app_ui - INFO - Header displayed.
+2025-08-18 17:24:58,029 - app_ui - INFO - Session state initialized.
+2025-08-18 17:25:02,694 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:25:02,696 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:25:02,700 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:25:02,751 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:25:02,764 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:25:02,772 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:25:02,789 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:25:02,830 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:25:02,839 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:25:03,865 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:25:03,903 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:25:03,918 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:25:03,936 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:25:03,937 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:25:03,955 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:25:03,956 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:25:04,009 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:25:04,017 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:25:04,029 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:25:04,030 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:25:04,043 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:25:04,060 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:25:04,075 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:25:04,089 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 17:25:04,090 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 17:25:04,090 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 17:25:04,123 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 17:25:04,124 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 17:25:04,160 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 17:25:04,162 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 17:25:04,176 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 17:25:04,177 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 17:25:04,178 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 17:25:04,207 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 17:25:04,208 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 17:25:06,269 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 17:25:56,404 - app_ui - INFO - Header displayed.
+2025-08-18 17:25:56,405 - app_ui - INFO - Session state initialized.
+2025-08-18 17:30:46,294 - app_ui - INFO - Header displayed.
+2025-08-18 17:30:46,294 - app_ui - INFO - Session state initialized.
+2025-08-18 17:30:47,018 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:30:47,018 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:30:47,019 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:30:47,028 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:30:47,032 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:30:47,032 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:30:47,037 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:30:47,043 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:30:47,044 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:30:47,398 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:30:47,416 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:30:47,424 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:30:47,437 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:30:47,437 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:30:47,449 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:30:47,450 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:30:47,480 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:30:47,485 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:30:47,493 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:30:47,493 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:30:47,504 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:30:47,520 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:30:47,531 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:30:47,543 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 17:30:47,546 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 17:30:47,547 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 17:30:47,572 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 17:30:47,573 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 17:30:47,603 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 17:30:47,604 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 17:30:47,614 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 17:30:47,616 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 17:30:47,617 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 17:30:47,635 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 17:30:47,636 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 17:30:49,872 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 17:31:00,427 - app_ui - INFO - Header displayed.
+2025-08-18 17:31:00,428 - app_ui - INFO - Session state initialized.
+2025-08-18 17:51:36,679 - app_ui - INFO - Header displayed.
+2025-08-18 17:51:36,680 - app_ui - INFO - Session state initialized.
+2025-08-18 17:51:36,743 - app_ui - INFO - Header displayed.
+2025-08-18 17:51:36,780 - app_ui - INFO - Session state initialized.
+2025-08-18 17:51:43,637 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 17:51:43,638 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 17:51:43,639 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 17:51:43,660 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 17:51:43,665 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 17:51:43,667 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 17:51:43,678 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 17:51:43,700 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 17:51:43,703 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 17:51:45,013 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 17:51:45,096 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 17:51:45,130 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 17:51:45,168 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 17:51:45,169 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 17:51:45,203 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 17:51:45,205 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 17:51:45,306 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 17:51:45,321 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 17:51:45,346 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 17:51:45,347 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 17:51:45,365 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 17:51:45,408 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 17:51:45,450 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 17:51:45,474 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 17:51:45,478 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 17:51:45,478 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 17:51:45,531 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 17:51:45,533 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 17:51:45,611 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 17:51:45,613 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 17:51:45,654 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 17:51:45,656 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 17:51:45,658 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 17:51:45,705 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 17:51:45,706 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 17:51:47,021 - stExportXl - ERROR - An error occurred during Excel export: NAN/INF not supported in write_number() without 'nan_inf_to_errors' Workbook() option
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stExportXl.py", line 419, in export_formatted_excel
+    worksheet.write(row_num + 1, col_num, original_df_data.iat[row_num, col_num], highlight_format)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\xlsxwriter\worksheet.py", line 112, in cell_wrapper
+    return method(self, *args, **kwargs)
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\xlsxwriter\worksheet.py", line 486, in write
+    return self._write(row, col, *args)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\xlsxwriter\worksheet.py", line 523, in _write
+    return self._write_number(row, col, *args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "d:\Work\Inso_AccountingRecon\.venv\Lib\site-packages\xlsxwriter\worksheet.py", line 652, in _write_number
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: NAN/INF not supported in write_number() without 'nan_inf_to_errors' Workbook() option
+2025-08-18 17:51:47,712 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 18:10:42,372 - app_ui - INFO - Header displayed.
+2025-08-18 18:10:42,373 - app_ui - INFO - Session state initialized.
+2025-08-18 18:10:44,272 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 18:10:44,273 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:10:44,274 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:10:44,286 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:10:44,289 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:10:44,290 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:10:44,297 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 18:10:44,308 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:10:44,310 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:10:45,002 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 18:10:45,033 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 18:10:45,051 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 18:10:45,064 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 18:10:45,065 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 18:10:45,078 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 18:10:45,079 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 18:10:45,122 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 18:10:45,128 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 18:10:45,143 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 18:10:45,143 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 18:10:45,152 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 18:10:45,167 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 18:10:45,181 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 18:10:45,192 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 18:10:45,194 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 18:10:45,195 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 18:10:45,217 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 18:10:45,218 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 18:10:45,253 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 18:10:45,255 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 18:10:45,268 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 18:10:45,268 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 18:10:45,269 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 18:10:45,287 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 18:10:45,287 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 18:10:47,688 - stExportXl - ERROR - An error occurred during Excel export: cannot access local variable 'party_value' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stExportXl.py", line 412, in export_formatted_excel
+    if "manual checks" in str(party_value).lower() or "ck#" in str(party_value).lower():
+                              ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'party_value' where it is not associated with a value
+2025-08-18 18:10:48,759 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 18:12:37,459 - app_ui - INFO - Header displayed.
+2025-08-18 18:12:37,460 - app_ui - INFO - Session state initialized.
+2025-08-18 18:12:37,941 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 18:12:37,941 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:12:37,942 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:12:37,947 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:12:37,948 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:12:37,949 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:12:37,957 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 18:12:37,961 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:12:37,962 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:12:38,157 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 18:12:38,165 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 18:12:38,174 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 18:12:38,179 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 18:12:38,180 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 18:12:38,185 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 18:12:38,185 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 18:12:38,199 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 18:12:38,201 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 18:12:38,208 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 18:12:38,209 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 18:12:38,212 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 18:12:38,217 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 18:12:38,223 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 18:12:38,226 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 18:12:38,227 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 18:12:38,228 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 18:12:38,233 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 18:12:38,233 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 18:12:38,246 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 18:12:38,246 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 18:12:38,250 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 18:12:38,250 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 18:12:38,251 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 18:12:38,259 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 18:12:38,260 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 18:12:39,094 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 18:12:40,787 - app_ui - INFO - Header displayed.
+2025-08-18 18:12:40,787 - app_ui - INFO - Session state initialized.
+2025-08-18 18:16:36,832 - app_ui - INFO - Header displayed.
+2025-08-18 18:16:36,836 - app_ui - INFO - Session state initialized.
+2025-08-18 18:16:49,347 - app_ui - INFO - Header displayed.
+2025-08-18 18:16:49,348 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:00,532 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:00,535 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:08,114 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:08,115 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:09,875 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:09,876 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:17,183 - app_ui - INFO - Files uploaded and processed.
+2025-08-18 18:17:25,837 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:25,837 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:25,852 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:17:25,853 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:17:25,862 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:17:25,865 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:17:25,866 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:17:25,870 - stBankGL - INFO - Found 462 missing values in 'Transaction Number'. Filling them.
+2025-08-18 18:17:25,881 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:17:25,882 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:17:26,064 - category_gl - INFO - Starting GL type classification.
+2025-08-18 18:17:26,067 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2025-08-18 18:17:26,067 - category_gl - INFO - Fill Checks based on the SOP
+2025-08-18 18:17:26,071 - category_gl - INFO - Checks filled based on SOP
+2025-08-18 18:17:26,071 - category_gl - INFO - Fill ACH based on SOP
+2025-08-18 18:17:26,074 - category_gl - INFO - ACH filled based on SOP
+2025-08-18 18:17:26,075 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2025-08-18 18:17:26,084 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2025-08-18 18:17:26,085 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:17:26,087 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:17:26,088 - category_gl - INFO - Fill square based on SOP
+2025-08-18 18:17:26,094 - category_gl - INFO - Filled square based on SOP
+2025-08-18 18:17:26,095 - category_gl - INFO - Fill ticketing based on SOP
+2025-08-18 18:17:26,100 - category_gl - INFO - Filled ticketing based on SOP
+2025-08-18 18:17:26,100 - category_gl - INFO - Fill AR based on Batch name
+2025-08-18 18:17:26,109 - category_gl - INFO - Filled AR based on Batch name
+2025-08-18 18:17:26,109 - category_gl - INFO - Fill wire based on Batch name
+2025-08-18 18:17:26,113 - category_gl - INFO - Filled wire based on Batch name
+2025-08-18 18:17:26,118 - category_gl - INFO - GL type classification completed successfully.
+2025-08-18 18:17:29,042 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:29,043 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:49,480 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:49,481 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:51,992 - app_ui - INFO - Header displayed.
+2025-08-18 18:17:51,992 - app_ui - INFO - Session state initialized.
+2025-08-18 18:17:54,127 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 18:17:54,128 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:17:54,129 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:17:54,137 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:17:54,139 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:17:54,140 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:17:54,150 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 18:17:54,172 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:17:54,174 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:17:55,000 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 18:17:55,046 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 18:17:55,064 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 18:17:55,081 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 18:17:55,082 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 18:17:55,312 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 18:17:55,313 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 18:17:55,366 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 18:17:55,376 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 18:17:55,399 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 18:17:55,400 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 18:17:55,417 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 18:17:55,440 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 18:17:55,460 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 18:17:55,475 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 18:17:55,477 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 18:17:55,480 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 18:17:55,515 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 18:17:55,516 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 18:17:55,563 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 18:17:55,566 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 18:17:55,582 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 18:17:55,583 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 18:17:55,584 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 18:17:55,590 - stExportXl - ERROR - Error writing combined summary sheet 'pivot': name 'CURRENCY_COLUMNS' is not defined
+Traceback (most recent call last):
+  File "D:\Work\Inso_AccountingRecon\GLvsBank_Recon_Ver1.7\stExportXl.py", line 186, in write_reconciliation_summary_sheet
+    if col_name in CURRENCY_COLUMNS:
+                   ^^^^^^^^^^^^^^^^
+NameError: name 'CURRENCY_COLUMNS' is not defined
+2025-08-18 18:17:55,598 - reconciliation_core - ERROR - Failed to write reconciliation summary sheet.
+2025-08-18 18:19:48,621 - app_ui - INFO - Header displayed.
+2025-08-18 18:19:48,625 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:10,342 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:10,351 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:16,639 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:16,639 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:17,586 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:17,587 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:22,578 - app_ui - INFO - Files uploaded and processed.
+2025-08-18 18:20:35,824 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:35,825 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:35,845 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:20:35,845 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:20:35,853 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:20:35,859 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:20:35,859 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:20:35,865 - stBankGL - INFO - Found 462 missing values in 'Transaction Number'. Filling them.
+2025-08-18 18:20:35,881 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:20:35,882 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:20:36,169 - category_gl - INFO - Starting GL type classification.
+2025-08-18 18:20:36,173 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2025-08-18 18:20:36,174 - category_gl - INFO - Fill Checks based on the SOP
+2025-08-18 18:20:36,181 - category_gl - INFO - Checks filled based on SOP
+2025-08-18 18:20:36,181 - category_gl - INFO - Fill ACH based on SOP
+2025-08-18 18:20:36,184 - category_gl - INFO - ACH filled based on SOP
+2025-08-18 18:20:36,184 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2025-08-18 18:20:36,202 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2025-08-18 18:20:36,202 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:20:36,205 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:20:36,205 - category_gl - INFO - Fill square based on SOP
+2025-08-18 18:20:36,216 - category_gl - INFO - Filled square based on SOP
+2025-08-18 18:20:36,217 - category_gl - INFO - Fill ticketing based on SOP
+2025-08-18 18:20:36,227 - category_gl - INFO - Filled ticketing based on SOP
+2025-08-18 18:20:36,228 - category_gl - INFO - Fill AR based on Batch name
+2025-08-18 18:20:36,244 - category_gl - INFO - Filled AR based on Batch name
+2025-08-18 18:20:36,244 - category_gl - INFO - Fill wire based on Batch name
+2025-08-18 18:20:36,250 - category_gl - INFO - Filled wire based on Batch name
+2025-08-18 18:20:36,257 - category_gl - INFO - GL type classification completed successfully.
+2025-08-18 18:20:38,936 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:38,937 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:54,054 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:54,059 - app_ui - INFO - Session state initialized.
+2025-08-18 18:20:55,606 - app_ui - INFO - Header displayed.
+2025-08-18 18:20:55,612 - app_ui - INFO - Session state initialized.
+2025-08-18 18:21:05,510 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 18:21:05,512 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:21:05,676 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:21:05,856 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:21:05,886 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:21:05,889 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:21:05,937 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 18:21:06,038 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:21:06,051 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:21:09,090 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 18:21:09,220 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 18:21:09,252 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 18:21:09,297 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 18:21:09,300 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 18:21:09,868 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 18:21:09,870 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 18:21:09,996 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 18:21:10,012 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 18:21:10,061 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 18:21:10,063 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 18:21:10,093 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 18:21:10,143 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 18:21:10,183 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 18:21:10,203 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 18:21:10,209 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 18:21:10,210 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 18:21:10,261 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 18:21:10,264 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 18:21:10,331 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 18:21:10,333 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 18:21:10,362 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 18:21:10,364 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 18:21:10,366 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 18:21:10,417 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 18:21:10,418 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 18:21:13,920 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 18:21:20,119 - app_ui - INFO - Header displayed.
+2025-08-18 18:21:20,119 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:06,465 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:06,469 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:12,151 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:12,151 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:17,863 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:17,864 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:18,717 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:18,718 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:18,843 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:18,881 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:28,250 - app_ui - INFO - Files uploaded and processed.
+2025-08-18 18:23:31,701 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:31,702 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:31,723 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:23:31,723 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:23:31,736 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:23:31,741 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:23:31,742 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:23:31,747 - stBankGL - INFO - Found 462 missing values in 'Transaction Number'. Filling them.
+2025-08-18 18:23:31,761 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:23:31,762 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:23:32,299 - category_gl - INFO - Starting GL type classification.
+2025-08-18 18:23:32,302 - category_gl - INFO - Identified the GL Category based on the bank Transaction
+2025-08-18 18:23:32,302 - category_gl - INFO - Fill Checks based on the SOP
+2025-08-18 18:23:32,309 - category_gl - INFO - Checks filled based on SOP
+2025-08-18 18:23:32,309 - category_gl - INFO - Fill ACH based on SOP
+2025-08-18 18:23:32,312 - category_gl - INFO - ACH filled based on SOP
+2025-08-18 18:23:32,313 - category_gl - INFO - Fill ZBA/Interest based on SOP
+2025-08-18 18:23:32,333 - category_gl - INFO - Filled ZBA/Interest based on SOP
+2025-08-18 18:23:32,333 - category_gl - INFO - Fill payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:23:32,338 - category_gl - INFO - Filled payroll,autodebit,eftps,vibee,stripe based on SOP
+2025-08-18 18:23:32,338 - category_gl - INFO - Fill square based on SOP
+2025-08-18 18:23:32,352 - category_gl - INFO - Filled square based on SOP
+2025-08-18 18:23:32,352 - category_gl - INFO - Fill ticketing based on SOP
+2025-08-18 18:23:32,366 - category_gl - INFO - Filled ticketing based on SOP
+2025-08-18 18:23:32,367 - category_gl - INFO - Fill AR based on Batch name
+2025-08-18 18:23:32,382 - category_gl - INFO - Filled AR based on Batch name
+2025-08-18 18:23:32,383 - category_gl - INFO - Fill wire based on Batch name
+2025-08-18 18:23:32,394 - category_gl - INFO - Filled wire based on Batch name
+2025-08-18 18:23:32,409 - category_gl - INFO - GL type classification completed successfully.
+2025-08-18 18:23:35,826 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:35,826 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:49,704 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:49,705 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:50,881 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:50,892 - app_ui - INFO - Session state initialized.
+2025-08-18 18:23:54,071 - reconciliation_core - INFO - Starting comprehensive reconciliation process.
+2025-08-18 18:23:54,072 - stBankGL - INFO - Starting initial cleaning and preparation of GL and Bank data.
+2025-08-18 18:23:54,073 - stBankGL - INFO - get transaction number from CK#
+2025-08-18 18:23:54,085 - stBankGL - INFO - Completed CK# extraction and DataFrame update.
+2025-08-18 18:23:54,089 - stBankGL - INFO - Completed REF# extraction and DataFrame update.
+2025-08-18 18:23:54,090 - stBankGL - INFO - Handling missing elements in column 'Transaction Number' with tag 'Tr'.
+2025-08-18 18:23:54,097 - stBankGL - INFO - No missing values found in column 'Transaction Number'.
+2025-08-18 18:23:54,105 - stBankGL - INFO - Initial cleaning and preparation complete.
+2025-08-18 18:23:54,107 - stBankGL - INFO - Renaming 'TRN TYPE' in bank data.
+2025-08-18 18:23:54,742 - reconciliation_core - INFO - GL and Bank data cleaned and prepared.
+2025-08-18 18:23:54,772 - reconciliation_core - INFO - GL data aggregated.
+2025-08-18 18:23:54,784 - stBankGL - INFO - Calculating variance and assigning comments to matched data.
+2025-08-18 18:23:54,800 - stBankGL - INFO - Variance and comments calculation complete.
+2025-08-18 18:23:54,801 - reconciliation_core - INFO - GL and Bank data matched and comments generated.
+2025-08-18 18:23:54,958 - reconciliation_core - INFO - Matched GL and Bank data formatted.
+2025-08-18 18:23:54,959 - stOutstanding - INFO - Creating party dimension table.
+2025-08-18 18:23:55,001 - stOutstanding - INFO - Party dimension table created successfully.
+2025-08-18 18:23:55,006 - stOutstanding - INFO - Processing outstanding bank checks.
+2025-08-18 18:23:55,020 - stOutstanding - INFO - Outstanding bank checks processed.
+2025-08-18 18:23:55,021 - stOutstanding - INFO - Identifying new outstanding checks from GL not in existing report.
+2025-08-18 18:23:55,034 - stOutstanding - INFO - Identified 78 new outstanding checks from GL.
+2025-08-18 18:23:55,046 - stOutstanding - INFO - Consolidating and formatting outstanding checks.
+2025-08-18 18:23:55,058 - stOutstanding - INFO - Outstanding checks consolidation complete.
+2025-08-18 18:23:55,072 - stOutstanding - INFO - Outstanding check report manual checks are highlighted.
+2025-08-18 18:23:55,074 - reconciliation_core - INFO - Outstanding checks processed and consolidated.
+2025-08-18 18:23:55,074 - stCreatePivot - INFO - Creating bank pivot table.
+2025-08-18 18:23:55,093 - stCreatePivot - INFO - Bank pivot table created successfully.
+2025-08-18 18:23:55,094 - stCreatePivot - INFO - Creating GL pivot table.
+2025-08-18 18:23:55,127 - stCreatePivot - INFO - GL pivot table created successfully.
+2025-08-18 18:23:55,128 - stCreatePivot - INFO - Creating difference grid between bank and GL pivot tables.
+2025-08-18 18:23:55,144 - stCreatePivot - INFO - Difference grid created successfully.
+2025-08-18 18:23:55,145 - reconciliation_core - INFO - Pivot tables created.
+2025-08-18 18:23:55,146 - stExportXl - INFO - Writing reconciliation summary to sheet: 'pivot'.
+2025-08-18 18:23:55,169 - stExportXl - INFO - Reconciliation summary written to sheet 'pivot' successfully.
+2025-08-18 18:23:55,170 - stExportXl - INFO - Starting formatted Excel export.
+2025-08-18 18:23:57,875 - reconciliation_core - INFO - Excel report generated successfully.
+2025-08-18 18:23:58,951 - app_ui - INFO - Header displayed.
+2025-08-18 18:23:58,952 - app_ui - INFO - Session state initialized.
