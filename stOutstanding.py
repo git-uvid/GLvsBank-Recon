@@ -188,7 +188,10 @@ def get_new_outstanding_from_gl(comments_data: pd.DataFrame, existing_outstandin
         trans_not_inbank_reqcols_ost[OUTSTANDING_CLEARED_COL] = pd.Series(dtype='object')
 
     
-    trans_not_inbank_reqcols_ost.loc[:, 'updated status'] = 'Check not cleared.New entires from gl'
+    if not trans_not_inbank_reqcols_ost.empty:
+        trans_not_inbank_reqcols_ost.loc[:, 'updated status'] = 'Check not cleared.New entires from gl'
+    else:
+        trans_not_inbank_reqcols_ost['updated status'] = pd.Series(dtype='object')
 
     # Filter out checks already present in the existing outstanding report
     trans_not_inbank_reqcols_ost['Exists in Existing Outstanding'] = \
