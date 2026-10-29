@@ -19,36 +19,6 @@ OUTSTANDING_CHECK_SHEET_NAME = "OutstandingCheck"
 # --- GL Columns ---
 #--- Modified as part of GL Categorization---
 #--- Added BatchName,Description and Journal Name--
-
-# Column names as they appear in the GL Excel file
-GL_COLUMNS_IN_FILE = [
-    'Company Code', 'Reporting Unit', 'Natural Account', 'Parent Account', 'Project Number',
-    'Period Name', 'Journal Source', 'Journal Category', 'Journal Name', 'Batch Name',
-    'Journal Line Description', 'Journal Entered Dr', 'Journal Entered Cr',
-    'Journal Accounted Dr', 'Journal Accounted Cr', 'Transaction Num', 'Transaction Date',
-    'Net Journal Entered', 'Party Number', 'Party Name', 'Accounted Sum'
-]
-
-# Mapping: GL Excel file column name -> Internal program column name
-GL_COLUMN_RENAME_MAP = {
-    'Company Code': 'CO',
-    'Reporting Unit': 'AU',
-    'Natural Account': 'Acct',
-    'Parent Account': 'Sub Acct',
-    'Project Number': 'Project',
-    'Journal Source': 'Source',
-    'Journal Category': 'Category',
-    'Journal Line Description': 'Description',
-    'Journal Entered Dr': 'Entered DR',
-    'Journal Entered Cr': 'Entered CR',
-    'Journal Accounted Dr': 'Accounted DR',
-    'Journal Accounted Cr': 'Accounted CR',
-    'Transaction Num': 'Transaction Number',
-    'Net Journal Entered': 'Transaction Amount',
-    # These stay the same: 'Period Name', 'Journal Name', 'Batch Name',
-    # 'Transaction Date', 'Party Number', 'Party Name', 'Accounted Sum'
-}
-
 GL_COLUMNS_REQUIRED = [
     'CO', 'AU', 'Acct', 'Sub Acct', 'Project', 'Period Name', 'Source', 'Category', 'Journal Name','Batch Name',
     'Description','Entered DR', 'Entered CR', 'Accounted DR', 'Accounted CR', 'Transaction Number', 'Transaction Date',

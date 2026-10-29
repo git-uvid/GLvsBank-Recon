@@ -5,8 +5,7 @@ import io
 from datetime import datetime
 from config import (
     GL_FILE_SHEET_NAME, BANK_FILE_SHEET_NAME, OUTSTANDING_CHECK_REPORT_SHEET_NAME,
-    GL_COLUMNS_IN_FILE, GL_COLUMN_RENAME_MAP, GL_COLUMNS_REQUIRED, GL_COLUMN_TYPES,
-    BANK_COLUMNS_REQUIRED, BANK_COLUMN_TYPES,
+    GL_COLUMNS_REQUIRED, GL_COLUMN_TYPES, BANK_COLUMNS_REQUIRED, BANK_COLUMN_TYPES,
     OUTSTANDING_CHECK_COLUMN_TYPES, EXCEL_OUTPUT_FILENAME, BANK_COMPARISON_KEY_COL
 )
 from reconciliation_core import run_full_reconciliation
@@ -122,20 +121,6 @@ def tab_file_upload():
                     gl_raw_df = pd.read_excel(gl_file, sheet_name=GL_FILE_SHEET_NAME, dtype=str)
                     bank_raw_df = pd.read_excel(bank_file, sheet_name=BANK_FILE_SHEET_NAME, dtype=str)
                     outstanding_raw_df = pd.read_excel(gl_file, sheet_name=OUTSTANDING_CHECK_REPORT_SHEET_NAME, dtype=str)
-                    # Auto-detect GL column format: new file columns vs old internal columns
-                    if set(GL_COLUMNS_IN_FILE).issubset(gl_raw_df.columns):
-                        # New format: select file columns, then rename to internal names
-                        gl_raw_df = gl_raw_df[GL_COLUMNS_IN_FILE].rename(columns=GL_COLUMN_RENAME_MAP)
-                        logger.info("GL file detected with new column names. Columns renamed to internal format.")
-                    elif not set(GL_COLUMNS_REQUIRED).issubset(gl_raw_df.columns):
-                        # Neither format matches — report which columns are missing
-                        missing_new = set(GL_COLUMNS_IN_FILE) - set(gl_raw_df.columns)
-                        missing_old = set(GL_COLUMNS_REQUIRED) - set(gl_raw_df.columns)
-                        raise KeyError(f"GL file columns don't match expected format.\n"
-                                       f"Missing new-format columns: {missing_new}\n"
-                                       f"Missing old-format columns: {missing_old}")
-                    else:
-                        logger.info("GL file detected with old column names. No renaming needed.")
                     gl_processed_df = gl_raw_df[GL_COLUMNS_REQUIRED].astype(GL_COLUMN_TYPES)
                     bank_processed_df = bank_raw_df[BANK_COLUMNS_REQUIRED].astype(BANK_COLUMN_TYPES)
                     outstanding_processed_df = outstanding_raw_df.astype(OUTSTANDING_CHECK_COLUMN_TYPES)
